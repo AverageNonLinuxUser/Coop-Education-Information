@@ -1,0 +1,266 @@
+/* css/main.css */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --accent-color: #bb86fc;
+    --accent-hover: #d4b3ff;
+    --border-color: #333;
+}
+
+/* เพิ่ม Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 🌟 แอนิเมชันตอนโหลดหน้าเว็บ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px); /* เพิ่มเอฟเฟกต์เบลอพื้นหลังให้ดู Modern */
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* 🌟 เอฟเฟกต์ขีดเส้นใต้เลื่อนได้ตอน Hover เมนู */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-hover);
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+/* Layout & Containers */
+.container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    /* เรียกใช้แอนิเมชันตอนโหลดหน้า */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+h1 { 
+    text-align: center; 
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* Grid for Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* 🌟 Cards - เพิ่มลูกเล่นตอน Hover */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* ลอยขึ้น */
+    box-shadow: 0 15px 30px rgba(187, 134, 252, 0.15); /* เรืองแสง */
+    border-color: var(--accent-color);
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid transparent;
+    transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+/* ซูมรูปภาพเล็กน้อยตอนนำเมาส์ไปชี้ที่การ์ด */
+.card:hover img {
+    transform: scale(1.08);
+    border-color: var(--accent-color);
+}
+
+.card h3 { 
+    margin-bottom: 0.8rem; 
+    font-size: 1.4rem;
+}
+
+.card p { 
+    font-size: 0.95rem; 
+    margin-bottom: 0.5rem; 
+    color: #b3b3b3; 
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card a:hover {
+    color: var(--accent-hover) !important;
+    transform: translateX(5px); /* เลื่อนลูกศรไปทางขวาตอน Hover */
+}
+
+/* Profile Pages */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-header:hover {
+    box-shadow: 0 8px 25px rgba(187, 134, 252, 0.1);
+}
+
+.profile-header img {
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transition: transform 0.5s ease;
+}
+
+.profile-header:hover img {
+    transform: scale(1.03) rotate(1deg); /* ขยับรูปเล็กน้อยตอน Hover ที่ Header */
+}
+
+.profile-header p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #cccccc;
+}
+
+.details-section {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.details-section:hover {
+    transform: scale(1.01);
+}
+
+.details-section ul {
+    list-style-type: none;
+}
+
+.details-section ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #cccccc;
+}
+
+/* ปรับแต่ง Bullet Points ให้ดูเป็นกราฟิกมากขึ้น */
+.details-section ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.map-container {
+    overflow: hidden;
+    padding-bottom: 45%;
+    position: relative;
+    height: 0;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.map-container:hover {
+    border-color: var(--accent-color);
+}
+
+.map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 0;
+    filter: grayscale(80%) invert(90%) contrast(1.2); /* ทำให้แผนที่ Google เป็น Dark Mode กลืนกับเว็บ */
+}
