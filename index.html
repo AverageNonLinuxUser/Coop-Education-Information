@@ -4,63 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โครงการสหกิจศึกษา - หน้าหลัก</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="active">หน้าหลัก (ข้อมูลสหกิจศึกษา)</a>
-        <a href="gavin.html">ข้อมูลของ กวิน</a>
-        <a href="kittipong.html">ข้อมูลของ กิตติพงษ์</a>
+    <nav aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="active">หน้าหลัก</a>
+            <a href="gavin.html">ข้อมูลของ กวิน</a>
+            <a href="kittipong.html">ข้อมูลของ กิตติพงษ์</a>
+            <button class="theme-toggle-btn" aria-label="เปลี่ยนธีมสี">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                </svg>
+            </button>
+        </div>
     </nav>
 
     <div class="container">
-        <h1>รายงานโครงการสหกิจศึกษา</h1>
+        <header class="page-header">
+            <div class="badge-tag">Cooperative Education</div>
+            <h1>รายงานโครงการสหกิจศึกษา</h1>
+            <p class="subtitle">
+                <span>สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์</span>
+                <span>มหาวิทยาลัยราชภัฏอุบลราชธานี</span>
+            </p>
+        </header>
 
-        <h2>ข้อมูลนักศึกษา</h2>
-        <div class="grid">
+        <h2>ข้อมูลนักศึกษา (Students)</h2>
+        <div class="grid-students">
             <div class="card">
-                <img src="Resources/gavin.jpg" alt="รูปของกวิน">
-                <h3>นาย กวิน ฟุคุนิชิ (Gavin Fukunishi)</h3>
+                <span class="card-role-badge">นักศึกษา</span>
+                <img src="Resources/gavin.jpg" alt="รูปของกวิน ฟุคุนิชิ">
+                <h3>นาย กวิน ฟุคุนิชิ (Gavin)</h3>
                 <p><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุบลราชธานี</p>
                 <p><strong>สาขาวิชา:</strong> วิศวกรรมเครือข่ายคอมพิวเตอร์</p>
                 <p><strong>สถานที่ฝึกงาน:</strong> บริษัท CloudEngine Digital จำกัด</p>
                 <p><strong>ระยะเวลาฝึกงาน:</strong> 9 พฤศจิกายน 2569 - 26 กุมภาพันธ์ 2570</p>
-                <br>
-                <a href="gavin.html" style="color: var(--accent-color);">ดูรายละเอียดเพิ่มเติม &rarr;</a>
+                <a href="gavin.html" class="card-cta">ดูรายละเอียดเพิ่มเติม &rarr;</a>
             </div>
 
             <div class="card">
-                <img src="Resources/kittipong.jpg" alt="รูปของกิตติพงษ์">
-                <h3>นาย กิตติพงษ์ วันดี (Kittipong Wandee)</h3>
+                <span class="card-role-badge">นักศึกษา</span>
+                <img src="Resources/kittipong.png" alt="รูปของกิตติพงษ์ วันดี">
+                <h3>นาย กิตติพงษ์ วันดี (Kittipong)</h3>
                 <p><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุบลราชธานี</p>
                 <p><strong>สาขาวิชา:</strong> วิศวกรรมเครือข่ายคอมพิวเตอร์</p>
-                <p><strong>สถานที่ฝึกงาน:</strong> บริษัท NotARealCompany จำกัด</p>
-                <p><strong>ระยะเวลาฝึกงาน:</strong> 1 มิถุนายน 25749283 - 30 พฤศจิกายน 25749284</p>
-                <br>
-                <a href="kittipong.html" style="color: var(--accent-color);">ดูรายละเอียดเพิ่มเติม &rarr;</a>
+                <p><strong>สถานที่ฝึกงาน:</strong> บริษัท พรีไซซ ดิจิตอล อีโคโนมี่ จำกัด</p>
+                <p><strong>ระยะเวลาฝึกงาน:</strong> 9 พฤศจิกายน 2569 - 19 มีนาคม 2570</p>
+                <a href="kittipong.html" class="card-cta">ดูรายละเอียดเพิ่มเติม &rarr;</a>
             </div>
         </div>
 
-        <h2>ข้อมูลอาจารย์</h2>
-        <div class="grid">
+        <h2>ข้อมูลอาจารย์ (Faculty & Advisors)</h2>
+        <div class="grid-teachers">
             <div class="card">
-                <img src="Resources/surajet.jpg" alt="รูปอาจารย์ที่ปรึกษา">
-                <h3>อาจารย์ที่ปรึกษา (Advisor)</h3>
-                <p><strong>ชื่อ-นามสกุล:</strong> ผู้ช่วยศาสตราจารย์ สุระเจตน์ อ่อนฤทธิ์</p>
+                <span class="card-role-badge">อาจารย์ที่ปรึกษา</span>
+                <img src="Resources/surajet.jpg" alt="รูปอาจารย์สุระเจตน์ อ่อนฤทธิ์">
+                <h3>ผศ. สุระเจตน์ อ่อนฤทธิ์</h3>
+                <p><strong>ตำแหน่ง:</strong> อาจารย์ที่ปรึกษา (Advisor)</p>
+                <p><strong>สังกัด:</strong> สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์</p>
             </div>
             <div class="card">
-                <img src="Resources/chanon.png" alt="รูปอาจารย์ที่ปรึกษา">
-                <h3>อาจารย์ที่ปรึกษา (Advisor)</h3>
-                <p><strong>ชื่อ-นามสกุล:</strong> ผู้ช่วยศาสตราจารย์ ชานนท์ จังกาจิตต์</p>
+                <span class="card-role-badge">อาจารย์ที่ปรึกษา</span>
+                <img src="Resources/chanon.png" alt="รูปอาจารย์ชานนท์ จังกาจิตต์">
+                <h3>ผศ. ชานนท์ จังกาจิตต์</h3>
+                <p><strong>ตำแหน่ง:</strong> อาจารย์ที่ปรึกษา (Advisor)</p>
+                <p><strong>สังกัด:</strong> สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์</p>
             </div>
             <div class="card">
-                <img src="Resources/ekarach.png" alt="รูปอาจารย์ผู้สอน">
-                <h3>อาจารย์ผู้สอน (Instructor)</h3>
-                <p><strong>ชื่อ-นามสกุล:</strong> ผู้ช่วยศาสตราจารย์ เอกราช ธรรมษา</p>
+                <span class="card-role-badge">อาจารย์ผู้สอน</span>
+                <img src="Resources/ekarach.png" alt="รูปอาจารย์เอกราช ธรรมษา">
+                <h3>ผศ. เอกราช ธรรมษา</h3>
+                <p><strong>ตำแหน่ง:</strong> อาจารย์ผู้สอน (Instructor)</p>
+                <p><strong>สังกัด:</strong> สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์</p>
             </div>
         </div>
     </div>
 
+    <footer>
+        <div class="footer-content">
+            <img src="Resources/cne-logo.png" alt="โลโก้สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์ (CNE)" class="footer-logo">
+            <p>&copy; 2026 โครงการสหกิจศึกษา สาขาวิชาวิศวกรรมเครือข่ายคอมพิวเตอร์ มหาวิทยาลัยราชภัฏอุบลราชธานี</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>
