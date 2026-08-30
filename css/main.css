@@ -195,7 +195,7 @@ nav {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
-    padding: 0.5rem 0.75rem;
+    padding: 0.35rem 0.5rem;
     box-shadow: var(--shadow-sm);
 }
 
@@ -203,11 +203,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.35rem;
+    gap: 0.25rem;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding: 0.15rem 0;
+    padding: 0.1rem 0;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -218,14 +218,14 @@ nav {
 nav a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: clamp(0.72rem, 2.8vw, 0.78rem);
     font-weight: 500;
-    padding: 0.45rem 0.8rem;
+    padding: 0.35rem 0.55rem;
     border-radius: var(--radius-full);
     white-space: nowrap;
     border: 1px solid transparent;
     transition: all var(--transition-normal);
-    min-height: 38px;
+    min-height: 32px;
     display: inline-flex;
     align-items: center;
 }
@@ -247,8 +247,8 @@ nav a.active {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--border);
@@ -267,8 +267,8 @@ nav a.active {
 }
 
 .theme-toggle-btn svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
     transition: transform var(--transition-fast);
 }
 
