@@ -430,6 +430,14 @@ h2::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.card-en-name,
+.profile-en-name {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .card p {
@@ -549,9 +557,10 @@ h2::before {
 }
 
 .profile-header h1 {
-    font-size: 1.2rem;
+    font-size: clamp(1.05rem, 4.2vw, 1.2rem);
     margin-bottom: 0.45rem;
     text-align: inherit;
+    line-height: 1.4;
 }
 
 .profile-header p {
