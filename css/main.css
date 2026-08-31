@@ -72,6 +72,7 @@
 [data-theme="light"] h2,
 [data-theme="light"] h3,
 [data-theme="light"] h4,
+[data-theme="light"] .card h3,
 [data-theme="light"] .details-section h3,
 [data-theme="light"] .location-text h4 {
     color: #0f172a;
@@ -356,7 +357,7 @@ h1 {
 h2 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-primary);
     margin: 1.5rem 0 0.85rem 0;
     display: flex;
     align-items: center;
@@ -373,7 +374,7 @@ h2::before {
 }
 
 /* Grids (Mobile = 1 Column) */
-.grid, .grid-students, .grid-teachers {
+.grid, .grid-students, .grid-teachers, .grid-advisors, .grid-coordinator {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -423,7 +424,7 @@ h2::before {
 .card h3 {
     font-size: 1.05rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 0.6rem;
     line-height: 1.35;
     min-height: 1.8rem;
@@ -471,10 +472,22 @@ h2::before {
     min-width: 92px;
 }
 
-.grid-teachers .card p strong {
-    display: inline-block;
-    min-width: 50px;
+.grid-teachers .card p,
+.grid-advisors .card p,
+.grid-coordinator .card p {
+    text-align: center;
+    font-size: 0.925rem;
+    white-space: normal;
+    word-break: break-word;
+    margin-top: 0.25rem;
 }
+
+.grid-teachers .card p strong,
+.grid-advisors .card p strong,
+.grid-coordinator .card p strong {
+    font-size: 0.95rem;
+}
+
 
 .card-cta {
     margin-top: auto;
@@ -597,7 +610,7 @@ h2::before {
 
 .details-section h3 {
     font-size: 0.925rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin: 1rem 0 0.5rem 0;
 }
 
@@ -679,7 +692,7 @@ h2::before {
 .location-text h4 {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 0.2rem;
     line-height: 1.35;
 }
@@ -912,9 +925,21 @@ footer p {
     }
 
     /* Grids (Tablet: 2 Columns) */
-    .grid, .grid-students, .grid-teachers {
+    .grid, .grid-students, .grid-teachers, .grid-advisors {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+
+    .grid-coordinator {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .grid-coordinator .card {
+        max-width: 480px;
+        width: 100%;
     }
 
     /* 3rd teacher card spans nicely or centers on tablet */
@@ -948,9 +973,18 @@ footer p {
         min-width: 92px;
     }
 
-    .grid-teachers .card p strong {
-        min-width: 50px;
+    .grid-teachers .card p,
+    .grid-advisors .card p,
+    .grid-coordinator .card p {
+        font-size: 0.98rem;
     }
+
+    .grid-teachers .card p strong,
+    .grid-advisors .card p strong,
+    .grid-coordinator .card p strong {
+        font-size: 1rem;
+    }
+
 
     .card-cta {
         font-size: 0.85rem;
@@ -1094,8 +1128,8 @@ footer p {
         margin: 3.5rem 0 1.75rem 0;
     }
 
-    /* Grids (Desktop: Students = 2 cols, Teachers = 3 cols) */
-    .grid-students {
+    /* Grids (Desktop: Students = 2 cols, Advisors = 2 cols, Coordinator = Centered) */
+    .grid-students, .grid-advisors {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.75rem;
     }
@@ -1105,11 +1139,16 @@ footer p {
         gap: 1.25rem;
     }
 
-    /* Reset span for desktop 3-col teacher grid */
-    .grid-teachers > .card:nth-child(3):last-child {
-        grid-column: auto;
-        max-width: none;
-        margin: 0;
+    .grid-coordinator {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .grid-coordinator .card {
+        max-width: 540px;
+        width: 100%;
     }
 
     .card {
@@ -1134,6 +1173,18 @@ footer p {
 
     .grid-students .card p strong {
         min-width: 115px;
+    }
+
+    .grid-teachers .card p,
+    .grid-advisors .card p,
+    .grid-coordinator .card p {
+        font-size: 1.05rem;
+    }
+
+    .grid-teachers .card p strong,
+    .grid-advisors .card p strong,
+    .grid-coordinator .card p strong {
+        font-size: 1.08rem;
     }
 
     /* Profile Header Desktop */
