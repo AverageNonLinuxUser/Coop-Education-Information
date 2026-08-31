@@ -294,6 +294,38 @@ function initScrollReveal() {
 /* --------------------------------------------------------------------------
    5. COPY ADDRESS BUTTON WITH TOAST NOTIFICATION & STATE FEEDBACK
    -------------------------------------------------------------------------- */
+async function copyTextToClipboard(text) {
+    // 1. Modern Clipboard API (works on HTTPS/localhost)
+    if (navigator.clipboard && window.isSecureContext) {
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch (e) {
+            // Fallback below
+        }
+    }
+
+    // 2. Fallback for file:///, older browsers, or non-secure contexts
+    try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-999999px';
+        textarea.style.top = '-999999px';
+        textarea.setAttribute('readonly', '');
+        textarea.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        return successful;
+    } catch (err) {
+        return false;
+    }
+}
+
 function initCopyButtons() {
     const copyButtons = document.querySelectorAll('.btn-copy-address');
 
@@ -306,27 +338,23 @@ function initCopyButtons() {
 
             if (!textToCopy) return;
 
-            try {
-                await navigator.clipboard.writeText(textToCopy);
-                
-                // Visual button feedback
-                btn.classList.add('copied');
-                btn.innerHTML = `
-                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    <span class="btn-copy-text">คัดลอกแล้ว! ✓</span>
-                `;
+            await copyTextToClipboard(textToCopy);
 
-                showToast('คัดลอกที่อยู่เรียบร้อยแล้ว!\u00A0📋');
+            // Visual button feedback
+            btn.classList.add('copied');
+            btn.innerHTML = `
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span class="btn-copy-text">คัดลอกแล้ว! ✓</span>
+            `;
 
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = originalHTML;
-                }, 2200);
-            } catch (err) {
-                showToast('คัดลอก: ' + textToCopy);
-            }
+            showToast('คัดลอกที่อยู่เรียบร้อยแล้ว!\u00A0📋');
+
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = originalHTML;
+            }, 2200);
         });
     });
 }
