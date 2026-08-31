@@ -1434,10 +1434,13 @@ footer p {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-accent);
     color: #ffffff;
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 1.35rem;
     border-radius: var(--radius-full);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 500;
+    white-space: nowrap;
+    max-width: 92vw;
+    text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
     opacity: 0;
     visibility: hidden;

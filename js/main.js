@@ -318,7 +318,7 @@ function initCopyButtons() {
                     <span class="btn-copy-text">คัดลอกแล้ว! ✓</span>
                 `;
 
-                showToast('คัดลอกที่อยู่เรียบร้อยแล้ว! 📋');
+                showToast('คัดลอกที่อยู่เรียบร้อยแล้ว!\u00A0📋');
 
                 setTimeout(() => {
                     btn.classList.remove('copied');
@@ -422,7 +422,7 @@ function initThemeToggle() {
             const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', nextTheme);
             localStorage.setItem('theme', nextTheme);
-            showToast(nextTheme === 'light' ? 'เปลี่ยนเป็นธีมสว่างแล้ว ☀️' : 'เปลี่ยนเป็นธีมมืดแล้ว 🌙');
+            showToast(nextTheme === 'light' ? 'เปลี่ยนเป็นธีมสว่างแล้ว\u00A0☀️' : 'เปลี่ยนเป็นธีมมืดแล้ว\u00A0🌙');
         });
     });
 }
